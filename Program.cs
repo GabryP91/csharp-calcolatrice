@@ -38,13 +38,6 @@ namespace csharp_calcolatrice
         static void Main(string[] args)
         {
 
-
-            int numberUser, num1, num2;
-
-            double numF1, numF2;
-
-
-
             // Esempi di utilizzo dei metodi della classe CalcoliHelper
             Console.WriteLine("\n\n*****Funzionalità classe statica:CalcoliHelper*****\n\n");
 
@@ -62,6 +55,65 @@ namespace csharp_calcolatrice
             Console.WriteLine("Caso [12]: Massimo di due numeri con la virgola");
             Console.WriteLine("Caso [13]: Potenza di un intero");
 
+            //richiamo funzione per la scelta
+            Choice();
+
+            //ciclo per permettere all'utente di continuare a sperimentare nuove funzioni
+            while (true)
+            {
+                
+                Console.WriteLine("Vuoi continuare? (sì/s)");
+
+                string risposta = Console.ReadLine();
+
+                //se l'utente vuole continuare a provare altre casistiche
+                if (risposta.ToLower() == "s" || risposta.ToLower() == "si")
+                {
+                    Choice();
+                }
+                //altrimenti
+                else
+                {
+                    break; // uscire dal ciclo 
+                }
+            }
+
+
+            Console.ReadKey();
+        }
+
+
+        static int CheckInt(string message)
+        {
+            int num;
+            Console.WriteLine(message);
+            while (!int.TryParse(Console.ReadLine(), out num))
+            {
+                Console.WriteLine("Sintassi errata. Inserisci un numero intero");
+                Console.WriteLine(message);
+            }
+            return num;
+             
+        }
+
+        static double CheckFloat(string message)
+        {
+            double num;
+            Console.WriteLine(message);
+            while (!double.TryParse(Console.ReadLine(), out num))
+            {
+                Console.WriteLine("Sintassi errata. Inserisci un numero double");
+                Console.WriteLine(message);
+            }
+            return num;
+
+        }
+        static void Choice()
+        {
+            int numberUser, num1, num2;
+
+            double numF1, numF2;
+
             Console.WriteLine("\n\n*********DIGITARE UN NUMERO:*********");
 
             //controllo sull'input dell'utente, se quello che è stato digitato non è un numero darà errore
@@ -74,8 +126,8 @@ namespace csharp_calcolatrice
             {
                 case 1:
 
-                     num1 = CheckInt("Inserire primo numero");
-                     num2 = CheckInt("Inserire secondo numero");
+                    num1 = CheckInt("Inserire primo numero");
+                    num2 = CheckInt("Inserire secondo numero");
 
                     Console.WriteLine("\nLa somma sarà uguale a: " + CalcoliHelper.Somma(num1, num2));
 
@@ -123,7 +175,7 @@ namespace csharp_calcolatrice
                 case 7:
 
                     num1 = CheckInt("Inserire numero");
-                    
+
                     Console.WriteLine("\nIl valore assoluto sarà uguale a: " + CalcoliHelper.ValoreAssoluto(num1));
 
                     break;
@@ -176,38 +228,10 @@ namespace csharp_calcolatrice
                     break;
 
                 //caso errore
-                default: Console.WriteLine("Valore inserito non valido");
+                default:
+                    Console.WriteLine("Valore inserito non valido");
                     break;
             }
-
-           
-            Console.ReadKey();
-        }
-
-
-        static int CheckInt(string message)
-        {
-            int num;
-            Console.WriteLine(message);
-            while (!int.TryParse(Console.ReadLine(), out num))
-            {
-                Console.WriteLine("Sintassi errata. Inserisci un numero intero");
-                Console.WriteLine(message);
-            }
-            return num;
-             
-        }
-
-        static double CheckFloat(string message)
-        {
-            double num;
-            Console.WriteLine(message);
-            while (!double.TryParse(Console.ReadLine(), out num))
-            {
-                Console.WriteLine("Sintassi errata. Inserisci un numero double");
-                Console.WriteLine(message);
-            }
-            return num;
 
         }
     }
