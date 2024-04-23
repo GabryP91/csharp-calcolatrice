@@ -108,6 +108,7 @@ namespace csharp_calcolatrice
                 return PowerPositive(baseNum, esponente);
             }
         }
+
         private static double PowerPositive(int baseNum, int esponente)
         {
             double risultato = 1.0;

@@ -14,11 +14,13 @@ Come visto a lezione, strutturare la classe in modo che non possa essere istanzi
 - Minimo tra due numeri double
 - Massimo tra due numeri interi
 - Massimo tra due numeri double
-Il fatto di dover scrivere lo stesso metodo per tipi di parametro diversi applica nella pratica uno dei principi di programmazione ad oggetti che abbiamo visto oggi…Quale? Scrivetelo in un commento all’interno del codice! :faccia_nerd:
+Il fatto di dover scrivere lo stesso metodo per tipi di parametro diversi applica nella pratica uno dei principi di programmazione ad oggetti che abbiamo visto oggi…Quale? 
+Scrivetelo in un commento all’interno del codice! :faccia_nerd:
 Testate tutti i metodi della vostra classe di helper (con un esempio per ogni casistica).
 
  **BONUS**:
-Aggiungete il metodo per l’elevamento a potenza che prende come parametri due numeri interi (base ed esponente) e ritorna la base elevata all’esponente. Occhio che sia la base che l’esponente potrebbero essere uguali a zero oppure numeri negativi!
+Aggiungete il metodo per l’elevamento a potenza che prende come parametri due numeri interi (base ed esponente) e ritorna la base elevata all’esponente. 
+Occhio che sia la base che l’esponente potrebbero essere uguali a zero oppure numeri negativi!
 (caso esponente = 0 e base = 0 anche se in matematica sarebbe un numero indefinito usiamo l’approccio informatico che lo calcola come 1)
 Buon lavoro!
  
@@ -37,9 +39,9 @@ namespace csharp_calcolatrice
         {
 
 
-            int numberUser,num1,num2;
+            int numberUser, num1 = 0, num2 = 0;
 
-            double numF1,numF2;
+            double numF1, numF2;
 
 
 
@@ -61,6 +63,7 @@ namespace csharp_calcolatrice
             Console.WriteLine("Caso [13]: Potenza di un intero");
 
             Console.WriteLine("\n\n*********DIGITARE UN NUMERO:*********");
+
             //controllo sull'input dell'utente, se quello che è stato digitato non è un numero darà errore
             while (int.TryParse(Console.ReadLine(), out numberUser) == false)
             {
@@ -70,108 +73,142 @@ namespace csharp_calcolatrice
             switch (numberUser)
             {
                 case 1:
-                    Console.WriteLine("\n Inserire primo numero");
-                    while (int.TryParse(Console.ReadLine(), out num1) == false)
-                    {
-                        Console.WriteLine("Sintassi errata. Inserisci numero");
-                    }
 
-                    Console.WriteLine("\n Inserire secondo numero");
-                    while (int.TryParse(Console.ReadLine(), out num2) == false)
-                    {
-                        Console.WriteLine("Sintassi errata. Inserisci numero");
-                    }
+                     num1 = CheckInt("Inserire primo numero");
+                     num2 = CheckInt("Inserire secondo numero");
 
-                    Console.WriteLine("\nSomma sarà: " + CalcoliHelper.Somma(num1, num2));
+                    Console.WriteLine("\nLa somma sarà uguale a: " + CalcoliHelper.Somma(num1, num2));
 
-                break;
+                    break;
                 case 2:
-                    Console.WriteLine("\n Inserire primo numero");
-                    while (double.TryParse(Console.ReadLine(), out numF1) == false)
-                    {
-                        Console.WriteLine("Sintassi errata. Inserisci numero");
-                    }
 
-                    Console.WriteLine("\n Inserire secondo numero");
-                    while (double.TryParse(Console.ReadLine(), out numF2) == false)
-                    {
-                        Console.WriteLine("Sintassi errata. Inserisci numero");
-                    }
+                    numF1 = CheckFloat("Inserire primo numero");
+                    numF2 = CheckFloat("Inserire secondo numero");
 
-                    Console.WriteLine("\nSomma sarà: " + CalcoliHelper.Somma(numF1, numF2));
+                    Console.WriteLine("\nLa somma sarà uguale a: " + CalcoliHelper.Somma(numF1, numF2));
 
-                break;
+                    break;
                 case 3:
-                    Console.WriteLine("\n Inserire primo numero");
-                    while (int.TryParse(Console.ReadLine(), out num1) == false)
-                    {
-                        Console.WriteLine("Sintassi errata. Inserisci numero");
-                    }
 
-                    Console.WriteLine("\n Inserire secondo numero");
-                    while (int.TryParse(Console.ReadLine(), out num2) == false)
-                    {
-                        Console.WriteLine("Sintassi errata. Inserisci numero");
-                    }
+                    num1 = CheckInt("Inserire primo numero");
+                    num2 = CheckInt("Inserire secondo numero");
 
-                    Console.WriteLine("\nSomma sarà: " + CalcoliHelper.Differenza(num1, num2));
+                    Console.WriteLine("\nLa differenza sarà uguale a: " + CalcoliHelper.Differenza(num1, num2));
 
                     break;
                 case 4:
-                    Console.WriteLine("\n Inserire primo numero");
-                    while (double.TryParse(Console.ReadLine(), out numF1) == false)
-                    {
-                        Console.WriteLine("Sintassi errata. Inserisci numero");
-                    }
 
-                    Console.WriteLine("\n Inserire secondo numero");
-                    while (double.TryParse(Console.ReadLine(), out numF2) == false)
-                    {
-                        Console.WriteLine("Sintassi errata. Inserisci numero");
-                    }
+                    numF1 = CheckFloat("Inserire primo numero");
+                    numF2 = CheckFloat("Inserire secondo numero");
 
-                    Console.WriteLine("\nSomma sarà: " + CalcoliHelper.Differenza(numF1, numF2));
+                    Console.WriteLine("\nLa differenza sarà uguale a: " + CalcoliHelper.Differenza(numF1, numF2));
+
+                    break;
+                case 5:
+
+                    num1 = CheckInt("Inserire primo numero");
+                    num2 = CheckInt("Inserire secondo numero");
+
+                    Console.WriteLine("\nLa moltiplicazione sarà uguale a: " + CalcoliHelper.Moltiplicazione(num1, num2));
+
+                    break;
+                case 6:
+
+                    numF1 = CheckFloat("Inserire primo numero");
+                    numF2 = CheckFloat("Inserire secondo numero");
+
+                    Console.WriteLine("\nLa moltiplicazione sarà uguale a: " + CalcoliHelper.Moltiplicazione(numF1, numF2));
+
+                    break;
+                case 7:
+
+                    num1 = CheckInt("Inserire numero");
+                    
+                    Console.WriteLine("\nIl valore assoluto sarà uguale a: " + CalcoliHelper.ValoreAssoluto(num1));
+
+                    break;
+                case 8:
+
+                    numF1 = CheckFloat("Inserire primo numero");
+
+                    Console.WriteLine("\nIl valore assoluto sarà uguale a: " + CalcoliHelper.ValoreAssoluto(numF1));
+
+                    break;
+                case 9:
+
+                    num1 = CheckInt("Inserire primo numero");
+                    num2 = CheckInt("Inserire secondo numero");
+
+                    Console.WriteLine("\nIl minimo sarà uguale a: " + CalcoliHelper.Minimo(num1, num2));
+
+                    break;
+                case 10:
+
+                    numF1 = CheckFloat("Inserire primo numero");
+                    numF2 = CheckFloat("Inserire secondo numero");
+
+                    Console.WriteLine("\nIl minimo sarà uguale a: " + CalcoliHelper.Minimo(numF1, numF2));
+
+                    break;
+                case 11:
+
+                    num1 = CheckInt("Inserire primo numero");
+                    num2 = CheckInt("Inserire secondo numero");
+
+                    Console.WriteLine("\nIl massimo sarà uguale a: " + CalcoliHelper.Massimo(num1, num2));
+
+                    break;
+                case 12:
+
+                    numF1 = CheckFloat("Inserire primo numero");
+                    numF2 = CheckFloat("Inserire secondo numero");
+
+                    Console.WriteLine("\nIl massimo sarà uguale a: " + CalcoliHelper.Massimo(numF1, numF2));
+
+                    break;
+                case 13:
+
+                    num1 = CheckInt("Inserire primo numero (base)");
+                    num2 = CheckInt("Inserire secondo numero (esponenete)");
+
+                    Console.WriteLine($"\nLa potenza di {num1} sarà uguale a: " + CalcoliHelper.Potenza(num1, num2));
 
                     break;
 
-
+                //caso errore
                 default: Console.WriteLine("Valore inserito non valido");
-                break;
+                    break;
             }
 
-            // Esempi di utilizzo dei metodi della classe CalcoliHelper
-            Console.WriteLine("Esempi di utilizzo dei metodi della classe CalcoliHelper:");
-
-            // Somma
-            
-            Console.WriteLine("Somma di due double: " + CalcoliHelper.Somma(5.5, 3.2));
-
-            // Differenza
-            Console.WriteLine("Differenza di due interi: " + CalcoliHelper.Differenza(8, 3));
-            Console.WriteLine("Differenza di due double: " + CalcoliHelper.Differenza(8.5, 3.2));
-
-            // Moltiplicazione
-            Console.WriteLine("Moltiplicazione di due interi: " + CalcoliHelper.Moltiplicazione(5, 3));
-            Console.WriteLine("Moltiplicazione di due double: " + CalcoliHelper.Moltiplicazione(5.5, 3.2));
-
-            // Valore assoluto
-            int valore = CalcoliHelper.ValoreAssoluto(-5);
-            Console.WriteLine("Valore assoluto di un intero: " + valore);
-            //Console.WriteLine("Valore assoluto di un double: " + CalcoliHelper.ValoreAssoluto(-5.5));
-
-            // Minimo
-            Console.WriteLine("Minimo tra due interi: " + CalcoliHelper.Minimo(5, 3));
-            Console.WriteLine("Minimo tra due double: " + CalcoliHelper.Minimo(5.5, 3.2));
-
-            // Massimo
-            Console.WriteLine("Massimo tra due interi: " + CalcoliHelper.Massimo(5, 3));
-            Console.WriteLine("Massimo tra due double: " + CalcoliHelper.Massimo(5.5, 3.2));
-
-            // Potenza
-            Console.WriteLine("Elevamento a potenza di due interi: " + CalcoliHelper.Potenza(2, 3));
-
-
+           
             Console.ReadKey();
+        }
+
+
+        static int CheckInt(string message)
+        {
+            int num;
+            Console.WriteLine(message);
+            while (!int.TryParse(Console.ReadLine(), out num))
+            {
+                Console.WriteLine("Sintassi errata. Inserisci un numero intero");
+                Console.WriteLine(message);
+            }
+            return num;
+             
+        }
+
+        static double CheckFloat(string message)
+        {
+            double num;
+            Console.WriteLine(message);
+            while (!double.TryParse(Console.ReadLine(), out num))
+            {
+                Console.WriteLine("Sintassi errata. Inserisci un numero double");
+                Console.WriteLine(message);
+            }
+            return num;
+
         }
     }
 }
