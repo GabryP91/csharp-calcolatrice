@@ -39,14 +39,14 @@ namespace csharp_calcolatrice
         {
 
 
-            int numberUser, num1 = 0, num2 = 0;
+            int numberUser, num1, num2;
 
             double numF1, numF2;
 
 
 
             // Esempi di utilizzo dei metodi della classe CalcoliHelper
-            Console.WriteLine("Esempi di utilizzo dei metodi della classe CalcoliHelper:");
+            Console.WriteLine("\n\n*****Funzionalità classe statica:CalcoliHelper*****\n\n");
 
             Console.WriteLine("Caso [1]: Somma di due numeri interi");
             Console.WriteLine("Caso [2]: Somma di due numeri con la virgola");
@@ -129,7 +129,7 @@ namespace csharp_calcolatrice
                     break;
                 case 8:
 
-                    numF1 = CheckFloat("Inserire primo numero");
+                    numF1 = CheckFloat("Inserire numero");
 
                     Console.WriteLine("\nIl valore assoluto sarà uguale a: " + CalcoliHelper.ValoreAssoluto(numF1));
 
