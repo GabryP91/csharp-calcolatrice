@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp_calcolatrice
 {
+
     public static class CalcoliHelper
     {
         // Metodo statico per la somma di due numeri interi
