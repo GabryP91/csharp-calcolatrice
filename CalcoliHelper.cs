@@ -98,9 +98,10 @@ namespace csharp_calcolatrice
         // Metodo statico per l'elevamento a potenza di due numeri interi
         public static double Potenza(int baseNum, int esponente)
         {
+            //se esponente minore di 0
             if (esponente < 0)
             {
-                // Gestione degli esponenti negativi: 1 / (base ^ |esponente|)
+                // ritorna il reciproco del numero elevato alla stessa potenza
                 return 1.0 / PowerPositive(baseNum, -esponente);
             }
             else

@@ -171,7 +171,7 @@ namespace csharp_calcolatrice
                     num1 = CheckInt("Inserire primo numero (base)");
                     num2 = CheckInt("Inserire secondo numero (esponenete)");
 
-                    Console.WriteLine($"\nLa potenza di {num1} sarà uguale a: " + CalcoliHelper.Potenza(num1, num2));
+                    Console.WriteLine($"\nLa potenza di {num1} alla {num2} sarà uguale a: " + CalcoliHelper.Potenza(num1, num2));
 
                     break;
 
